@@ -14,6 +14,7 @@ def loadData(filepath):
             f.close()
     return np.mat(data), m, n
 
+
 imgData, row, col = loadData("java.jpg")
 label = KMeans(n_clusters=3).fit_predict(imgData)
 label = label.reshape([row, col])
@@ -23,4 +24,4 @@ for i in range(row):
         pic_new.putpixel((i, j), int(256 / (label[i][j] + 1)))
 pic_new.save("result.jpg", "JPEG")
 
-print("finished---------------");
+print("-----------------finished---------------");
